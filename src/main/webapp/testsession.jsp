@@ -4,23 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Acceuil</title>
+<title>Insert title here</title>
 </head>
 <body>
+	<p>Vous êtes sur testsession.jsp</p>
 	<c:if test="${ !empty sessionScope.nom && !empty sessionScope.prenom }">
 		<p>Vous êtes ${ sessionScope.nom } ${ sessionScope.prenom } !</p>
 	</c:if>
-
-	<form method="post" action="acceuil">
-		<p>
-			<label for="nom">Nom : </label>
-			<input type="text" name="nom" id="nom" />
-		</p>
-		<p>
-			<label for="prenom">Prénom : </label>
-			<input type="text" name="prenom" id="prenom" />
-		</p>
-		<input type="submit" />
-	</form>
 </body>
 </html>
