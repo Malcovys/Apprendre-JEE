@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +7,7 @@
 <body>
 	<%-- LIRE UNE SESSION
 		<c:if test="${ !empty sessionScope.nom && !empty sessionScope.prenom }">
-			<p>Vous Ãªtes ${ sessionScope.nom } ${ sessionScope.prenom } !</p>
+			<p>Vous êtes ${ sessionScope.nom } ${ sessionScope.prenom } !</p>
 		</c:if> 
 	--%>
 	
@@ -21,7 +19,7 @@
 			<input type="text" name="nom" id="nom" />
 		</p>
 		<p>
-			<label for="prenom">PrÃ©nom : </label>
+			<label for="prenom">Prénom : </label>
 			<input type="text" name="prenom" id="prenom" />
 		</p>
 		<input type="submit" />

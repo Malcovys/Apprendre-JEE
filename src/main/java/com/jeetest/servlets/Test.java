@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeetest.foms.LoginForm;
-
+import com.jeetest.bdd.Noms;
+import com.jeetest.beans.Utilisateur;
 
 @WebServlet("/Test")
 public class Test extends HttpServlet {
@@ -22,15 +22,23 @@ public class Test extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Noms tableNoms = new Noms();
+		
+		request.setAttribute("utilisateurs", tableNoms.recupererUtilisateur());
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LoginForm form = new LoginForm();
-		form.verifierIdentifiants(request);
+		Utilisateur utilisateur = new Utilisateur();
+		utilisateur.setNom(request.getParameter("nom"));
+		utilisateur.setPrenom(request.getParameter("prenom"));
 		
-		request.setAttribute("form", form);
+		Noms tableNoms = new Noms();
+		tableNoms.ajouterUtilisateur(utilisateur);	
+		
+		request.setAttribute("utilisateurs", tableNoms.recupererUtilisateur());
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
 	}
