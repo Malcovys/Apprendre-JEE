@@ -6,8 +6,8 @@
 </head>
 <body>
 	
-	<c:if test="${ !empty form.resultat }" >
-		<p><c:out value="${ form.resultat }" /></p>
+	<c:if test="${ !empty erreur }">
+		<p style="color:red;"><c:out value="${ erreur }"/></p>
 	</c:if>
 
 	<form method="post" action="bonjour">
